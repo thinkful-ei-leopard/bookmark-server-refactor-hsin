@@ -7,6 +7,7 @@ const helmet= require('helmet');
 const { NODE_ENV } = require('./config');
 const logger = require('./logger');
 
+
 const bookmarkRouter = require('./bookmark/bookmark-router');
 
 
@@ -33,8 +34,8 @@ app.use(function validateBearerToken(req, res, next) {
     // move to the next middleware
     next();
   });
-
-  app.use(bookmarkRouter);
+  app.use('/bookmarks', bookmarkRouter);
+  //app.use(bookmarkRouter);
 
   app.get('/', (req, res)=>{
       res.send('Hello world');
@@ -42,6 +43,7 @@ app.use(function validateBearerToken(req, res, next) {
 
 app.use(function errorHandler(error, req, res, next){
     let response;
+    console.log(error.message);
     if(NODE_ENV === 'production'){
         response ={ error: { message: 'sever error'}};
     }else{

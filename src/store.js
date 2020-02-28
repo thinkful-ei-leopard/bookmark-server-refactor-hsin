@@ -1,4 +1,4 @@
-const bookmarks = [{
+const store = [{
   id: '1',
   title: 'thinkful',
   url: 'http://thinful.com',
@@ -13,4 +13,4 @@ const bookmarks = [{
   rating: 4 
 }];
 
-module.exports=bookmarks;
+module.exports=store;
